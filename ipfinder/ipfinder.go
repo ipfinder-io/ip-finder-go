@@ -6,6 +6,8 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+
+	"ipfinder/validation"
 	// "encoding/json"
 	// "log"
 )
@@ -62,6 +64,11 @@ func NewIPFinder(t string, b string) *IPFinder {
 	if t == "" {
 		p.token = DEFAULTAPITOKEN
 	} else {
+
+		if validation.Tokenvalidate(t) == false {
+			return "", errors.New("Invalid IPFINDER API Token")
+		}
+
 		p.token = t
 	}
 	if b == "" {
@@ -93,18 +100,28 @@ func (p *IPFinder) Call(path string, format string) (string, error) {
 // Authentication Get details for an Your IP address.
 // Your IP address data.
 func (p *IPFinder) Authentication() (string, error) {
-	return p.Call("", "FORMAT")
+	return p.Call("", FORMAT)
 }
 
 // GetAddressInfo Get details for an IP address.
 // IP address data.
 func (p *IPFinder) GetAddressInfo(path string) (string, error) {
+
+	if validation.Ipvalidate(path) == false {
+		return "", errors.New("Invalid IPaddress")
+	}
+
 	return p.Call(path, FORMAT)
 }
 
 // GetAsn Get details for an AS number.
 // AS number data.
 func (p *IPFinder) GetAsn(path string) (string, error) {
+
+	if validation.Asnvalidate(path) == false {
+		return "", errors.New("Invalid asn number")
+	}
+
 	return p.Call(path, FORMAT)
 }
 
@@ -123,18 +140,27 @@ func (p *IPFinder) GetRanges(path string) (string, error) {
 // GetFirewall Get Firewall data
 // Firewall data.
 func (p *IPFinder) GetFirewall(by string, formats string) (string, error) {
+	if validation.Firewallvalidate("as1", "apache_allow") == false {
+		return "", errors.New("Invalid Firewall string please use AS number or ISO 3166-1 alpha-2 country \n or Invalid Format supported format https://ipfinder.io/docs/?shell#firewall")
+	}
 	return p.Call(FIREWALLPATH+by, formats)
 }
 
 // GetDomain Get Domain IP
 // Domain to IP data.
 func (p *IPFinder) GetDomain(path string) (string, error) {
+	if validation.Domainvalidate(path) == false {
+		return "", errors.New("Invalid Domain name")
+	}
 	return p.Call(DOMAINPATH+path, FORMAT)
 }
 
 // GetDomainHistory Get Domain History IP
 // Domain History data.
 func (p *IPFinder) GetDomainHistory(path string) (string, error) {
+	if validation.Domainvalidate(path) == true {
+		return "", errors.New("Invalid Domain name")
+	}
 	return p.Call(DOMAINHPATH+path, FORMAT)
 }
 
