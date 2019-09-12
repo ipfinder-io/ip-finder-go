@@ -140,7 +140,7 @@ func (p *IPFinder) GetRanges(path string) (string, error) {
 // GetFirewall Get Firewall data
 // Firewall data.
 func (p *IPFinder) GetFirewall(by string, formats string) (string, error) {
-	if validation.Firewallvalidate("as1", "apache_allow") == false {
+	if validation.Firewallvalidate(by, formats) == false {
 		return "", errors.New("Invalid Firewall string please use AS number or ISO 3166-1 alpha-2 country \n or Invalid Format supported format https://ipfinder.io/docs/?shell#firewall")
 	}
 	return p.Call(FIREWALLPATH+by, formats)
