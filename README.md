@@ -23,7 +23,7 @@ See the [official documentation](https://ipfinder.io/docs).
 
 ## Installation
 ```shell
-go get github.com/ipfinder-io/ip-finder-go
+go get github.com/ipfinder-io/ip-finder-go/ipfinder
 ```
 
 ## With `free` TOKEN
