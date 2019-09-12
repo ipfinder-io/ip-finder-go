@@ -2,15 +2,17 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/ipfinder-io/ip-finder-go/ipfinder"
 )
 
 func main() {
-	ipfinder := NewIPFinder("YOUR_TOKEN_GOES_HERE", "")
-	ip, err := ipfinder.GetFirewall("as1", "nginx_deny")
+	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "")
+	fire, err := conf.GetFirewall("as1", "nginx_deny")
 
 	if err != nil {
 		fmt.Println("Error : ", err)
 	} else {
-		fmt.Println(ip)
+		fmt.Println(fire)
 	}
 }

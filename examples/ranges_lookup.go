@@ -2,15 +2,17 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/ipfinder-io/ip-finder-go/ipfinder"
 )
 
 func main() {
-	ipfinder := NewIPFinder("YOUR_TOKEN_GOES_HERE", "")
-	ip, err := ipfinder.GetRanges("Telecom Algeria")
+	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "")
+	range, err := conf.GetRanges("Telecom Algeria")
 
 	if err != nil {
 		fmt.Println("Error : ", err)
 	} else {
-		fmt.Println(ip)
+		fmt.Println(range)
 	}
 }
