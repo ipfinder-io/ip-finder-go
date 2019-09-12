@@ -1,4 +1,4 @@
-package ipfinder
+package ipfinder // import "github.com/ipfinder-io/ip-finder-go/ipfinder"
 
 import (
 	"bytes"
