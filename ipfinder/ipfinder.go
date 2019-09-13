@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"ipfinder/validation"
+	"github.com/ipfinder-io/ip-finder-go/ipfinder/validation"
 	// "encoding/json"
 	// "log"
 )
@@ -65,9 +65,9 @@ func NewIPFinder(t string, b string) *IPFinder {
 		p.token = DEFAULTAPITOKEN
 	} else {
 
-		if validation.Tokenvalidate(t) == false {
-			return "", errors.New("Invalid IPFINDER API Token")
-		}
+		// if validation.Tokenvalidate(t) == false {
+		// 	return "", errors.New("Invalid IPFINDER API Token")
+		// }
 
 		p.token = t
 	}
