@@ -56,9 +56,9 @@ const (
 	DOMAINBYPATH = "domainby/"
 )
 
-// NewIPFinder Constructor
+// New Constructor
 // ADD YOUR TOKEN AND YOUR PROXY
-func NewIPFinder(t string, b string) *IPFinder {
+func New(t string, b string) *IPFinder {
 
 	p := new(IPFinder)
 	if t == "" {
