@@ -31,7 +31,7 @@ go get github.com/ipfinder-io/ip-finder-go/ipfinder
 ```go 
 // lookup your IP address information
 func main() {
-	conf := ipfinder.NewIPFinder("", "") // "" == free token or use "free"
+	conf := ipfinder.New("", "") // "" == free token or use "free"
 	auth, err := conf.Authentication()
 
 	if err != nil {
@@ -47,7 +47,7 @@ func main() {
 ```go 
 // lookup your IP address information
 func main() {
-	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "")
+	conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "")
 	auth, err := conf.Authentication()
 
 	if err != nil {
@@ -63,7 +63,7 @@ func main() {
 ```go 
 // lookup IP address information
 func main() {
-	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "")
+	conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "")
 	ip, err := conf.GetAddressInfo("1.0.0.0")
 
 	if err != nil {
@@ -81,7 +81,7 @@ This API available as part of our Pro and enterprise [https://ipfinder.io/pricin
 ```go 
 // lookup Asn information
 func main() {
-	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "") 
+	conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "") 
 	asn, err := conf.GetAsn("as1")
 
 	if err != nil {
@@ -99,7 +99,7 @@ formats supported are :  `apache_allow`, `apache_deny`,`nginx_allow`,`nginx_deny
 ```go 
 // lookup Asn Firewall information
 func main() {
-	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "") 
+	conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "") 
 	fire, err := conf.GetFirewall("as1", "nginx_deny")
 
 	if err != nil {
@@ -116,7 +116,7 @@ This API available as part of our  enterprise [https://ipfinder.io/pricing](http
 ```go 
 // lookup Organization information
 func main() {
-	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "")
+	conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "")
 	ranges, err := conf.GetRanges("Telecom Algeria")
 
 	if err != nil {
@@ -132,7 +132,7 @@ func main() {
 ```go 
 // lookup IP TOKEN information
 func main() {
-	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "")
+	conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "")
 	stats, err := conf.GetStatus()
 
 	if err != nil {
@@ -148,7 +148,7 @@ func main() {
 ```go 
 // Get domain name
 func main() {
-	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "")
+	conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "")
 	domain, err := conf.GetDomain("google.dz")
 
 	if err != nil {
@@ -164,7 +164,7 @@ func main() {
 ```go 
 // Get domain name IP list history
 func main() {
-	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "") 
+	conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "") 
 	domain, err := conf.GetDomainHistory("google.dz")
 
 	if err != nil {
@@ -180,7 +180,7 @@ func main() {
 ```go 
 // list live domain by country DZ,US,TN,FR,MA
 func main() {
-	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "") 
+	conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "") 
 	domain, err := conf.GetDomainBy("DZ")
 
 	if err != nil {
@@ -193,7 +193,7 @@ func main() {
 
 ## Add proxy
 ```go 
-conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "https://ipfinder.yourdomain.com")
+conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "https://ipfinder.yourdomain.com")
 ```
 
 Sample codes under **examples/** folder.
