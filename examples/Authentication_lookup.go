@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	conf := ipfinder.NewIPFinder("", "")
+	conf := ipfinder.New("", "")
 	auth, err := conf.Authentication()
 
 	if err != nil {

@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "")
+	conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "")
 	ip, err := conf.GetAsn("as1")
 
 	if err != nil {

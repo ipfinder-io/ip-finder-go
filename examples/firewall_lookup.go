@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "")
+	conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "")
 	fire, err := conf.GetFirewall("as1", "nginx_deny")
 
 	if err != nil {

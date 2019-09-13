@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	conf := ipfinder.NewIPFinder("YOUR_TOKEN_GOES_HERE", "")
+	conf := ipfinder.New("YOUR_TOKEN_GOES_HERE", "")
 	domain, err := conf.GetDomainHistory("google.dz")
 
 	if err != nil {
